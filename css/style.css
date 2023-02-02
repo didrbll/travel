@@ -683,7 +683,7 @@ active отвечает за состояние ссылки, когда по н
     display: grid;
     -ms-grid-columns: 1fr 55px 1fr 55px 1fr;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 55px;
+    column-gap: 55px;
     padding: 0 100px;
 }
 
@@ -778,8 +778,8 @@ active отвечает за состояние ссылки, когда по н
     -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
     grid-template-columns: repeat(6, 1fr); /*картинок 5, но количество колонок должно делиться и на 2, и на 3
     верхние карточки используют по 3 колонки каждая, нижние - по 2*/
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
 .places__card{
@@ -865,7 +865,7 @@ active отвечает за состояние ссылки, когда по н
     display: grid;
     -ms-grid-columns: 1fr 108px 1fr;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 108px;
+    column-gap: 108px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -916,8 +916,8 @@ active отвечает за состояние ссылки, когда по н
     display: grid;
     -ms-grid-columns: 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr;
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 57px;
-    grid-row-gap: 57px;
+    column-gap: 57px;
+    row-gap: 57px;
 }
 
 .top__card-pic{
@@ -1132,7 +1132,7 @@ active отвечает за состояние ссылки, когда по н
 
     .benefits__cards{
         padding: 0 15px;
-        grid-column-gap: 35px;
+        column-gap: 35px;
     }
 
     .benefits__title{
@@ -1155,7 +1155,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .tours__tour{
-        grid-column-gap: 35px;
+        column-gap: 35px;
     }
 
     .tour__info{
@@ -1171,8 +1171,8 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .top__cards{
-        grid-column-gap: 25px;
-        grid-row-gap: 55px;
+        column-gap: 25px;
+        row-gap: 55px;
     }
 
     .top__card{
