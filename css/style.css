@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -70,7 +77,6 @@ input[type=search] {
     -webkit-appearance: none;
     -moz-appearance: none;
     -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
 
@@ -267,6 +273,7 @@ html input[disabled] {
 
 input[type="checkbox"],
 input[type="radio"] {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
     *height: 13px; /* 3 */
@@ -281,7 +288,6 @@ input[type="radio"] {
 
 input[type="search"] {
     -webkit-appearance: textfield; /* 1 */
-    -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box; /* 2 */
     box-sizing: content-box;
 }
@@ -396,10 +402,12 @@ textarea {
 }
 
 html{
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 *, *::before, *::after{
+    -webkit-box-sizing: inherit;
     box-sizing: inherit;
 }
 
@@ -454,6 +462,8 @@ img{
     top: 0; /*прибьем хедер к верхней части экрана*/
     left: 0; /*выровняем хедер по левой части экрана*/
     width: 100%;
+    -webkit-transition: .2s linear /*0,2sec*/;
+    -o-transition: .2s linear /*0,2sec*/;
     transition: .2s linear /*0,2sec*/;
     padding-bottom: 20px;
     z-index: 999; /*чтобыхедер был поверх всех остальных блоков*/
@@ -464,15 +474,25 @@ img{
 }
 
 .header__wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap; /*позволяет элементам переходить на новую строку, если нет места*/
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end; /*т.к элементы находятся в нижней части блока*/
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-top: 56px;
 }
 
 .header__list{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -519,6 +539,8 @@ active отвечает за состояние ссылки, когда по н
 .burger__line_second{
     /*чтобы расположить элемент по центру, указываем top и transform*/
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -558,7 +580,10 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .search-form__info{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -572,6 +597,30 @@ active отвечает за состояние ссылки, когда по н
     margin-right: 60px;
     padding-left: 43px;
     padding-bottom: 22px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.search-form__field::-webkit-input-placeholder{
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.search-form__field::-moz-placeholder{
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.search-form__field:-ms-input-placeholder{
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.search-form__field::-ms-input-placeholder{
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
@@ -607,6 +656,7 @@ active отвечает за состояние ссылки, когда по н
     max-width: 1262px;
     background-color: #FFFFFF;
     margin: 0 auto;
+    -webkit-box-shadow: 0 2px 20px rgba(21, 24, 36, 0.15993);
     box-shadow: 0 2px 20px rgba(21, 24, 36, 0.15993);
     position: relative;
 }
@@ -620,6 +670,8 @@ active отвечает за состояние ссылки, когда по н
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
     transform: translateY(-100%);
     /*сдвигаем блок по оси Y на 100% его собственной высоты.
     Указываем -100, потому что сдвигаем вверх*/
@@ -627,13 +679,16 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .benefits__cards{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 55px 1fr 55px 1fr;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 55px;
     padding: 0 100px;
 }
 
 .benefits__card{
+    -ms-grid-column-span: 1;
     grid-column: span 1; /*карточки занимают по одной колонке*/
     margin-bottom: 112px;
 }
@@ -671,6 +726,8 @@ active отвечает за состояние ссылки, когда по н
     color: #006DFE;
     text-decoration: none;
     background: url("../img/svg/arrow.svg") no-repeat 95% center;
+    -webkit-transition: .2s all;
+    -o-transition: .2s all;
     transition: .2s all; /*для плавности перехода*/
 }
 
@@ -685,9 +742,16 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .places__caption{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 36px;
 }
@@ -709,7 +773,9 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .places__cards{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
     grid-template-columns: repeat(6, 1fr); /*картинок 5, но количество колонок должно делиться и на 2, и на 3
     верхние карточки используют по 3 колонки каждая, нижние - по 2*/
     grid-column-gap: 10px;
@@ -734,6 +800,8 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .places__card:hover .places__card-pic{
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05); /*изменяет размер изображения при наведении*/
 }
 
@@ -748,26 +816,32 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .places__card-size-lg{
+    -ms-grid-column-span: 3;
     grid-column: span 3; /*пик занимает 3 колонки*/
 }
 
 .places__card-size-sm{
+    -ms-grid-column-span: 2;
     grid-column: span 2;
 }
 
 .places__card-pic{
     width: 100%;
+    -webkit-transition: .15s all;
+    -o-transition: .15s all;
     transition: .15s all; /*для плавности анимации*/
 }
 
 .places__card-pic_size_lg{
     height: 354px;
+    -o-object-fit: cover;
     object-fit: cover; /*св-во указывает, как пик будет масштабироваться внутри контейнер
     в нашем случае при уменьшении масштаба, картинки будут обрезаться по бокам, по высоте оставаться такими же*/
 }
 
 .places__card-pic_size_sm{
     height: 283px;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -787,9 +861,13 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .tours__tour{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 108px 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 108px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-bottom: 77px;
 }
@@ -834,7 +912,9 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .top__cards{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr;
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 57px;
     grid-row-gap: 57px;
@@ -848,16 +928,29 @@ active отвечает за состояние ссылки, когда по н
 .top__card{
     /*flex и grid для выравнивания кнопок, чтобы они были на одном уровне, если будет разное количество контента
 в карточках*/
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-grid-column-span: 2;
     grid-column: span 2;
 
 }
 
 .top__card-stats{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end; /*позволяет сдвигать элемент при помощи автопозиционирования маржинов*/
     position: absolute;
     bottom: 0;
@@ -937,7 +1030,7 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .video__element{
-   position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -953,7 +1046,10 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .footer__item{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap
 }
 
@@ -962,8 +1058,13 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .footer__nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 50%;
 }
@@ -987,6 +1088,8 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .footer__menu-link:hover, .footer__menu-link:focus, .footer__menu-link:active{
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
     border-bottom: 1px solid #FFFFFF;
 }
@@ -1003,6 +1106,8 @@ active отвечает за состояние ссылки, когда по н
 }
 
 .footer__link:hover, .footer__link:focus, .footer__link:active{
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
     border-bottom: 2px solid #FFFFFF;
 }
@@ -1035,14 +1140,17 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .benefits__wrap{
+        -webkit-box-shadow: none;
         box-shadow: none;
     }
 
     .places__card-size-lg{
-       grid-column: span 6;
+        -ms-grid-column-span: 6;
+        grid-column: span 6;
     }
 
     .places__card-size-sm{
+        -ms-grid-column-span: 6;
         grid-column: span 6;
     }
 
@@ -1068,6 +1176,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .top__card{
+        -ms-grid-column-span: 3;
         grid-column: span 3;
     }
 
@@ -1107,12 +1216,18 @@ active отвечает за состояние ссылки, когда по н
         background: #0E1D28;
         z-index: 10;
         padding: 75px;
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
         transform: translateX(100%);
         /*передавая значение 100%, сдвигаем элемент на 100% собственной ширины вправо - меню становится не видно . -100% - влево*/
+        -webkit-transition: .2s all linear;
+        -o-transition: .2s all linear;
         transition: .2s all linear;
     }
 
     .header__nav_active{
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
         transform: translateX(0);
     }
 
@@ -1151,10 +1266,14 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .header__nav-close-line:first-child{
+        -webkit-transform: translateY(-50%) rotate(45deg);
+        -ms-transform: translateY(-50%) rotate(45deg);
         transform: translateY(-50%) rotate(45deg); /*rotate поворачивает элемент на 45 градусов*/
     }
 
     .header__nav-close-line:last-child{
+        -webkit-transform: translateY(-50%) rotate(-45deg);
+        -ms-transform: translateY(-50%) rotate(-45deg);
         transform: translateY(-50%) rotate(-45deg); /*rotate поворачивает элемент на 45 градусов в другую сторону*/
     }
 
@@ -1179,6 +1298,22 @@ active отвечает за состояние ссылки, когда по н
         background: transparent url(../img/svg/circle-icon.svg) no-repeat left 2px;
     }
 
+    .search-form__field::-webkit-input-placeholder{
+        font-size: 16px;
+    }
+
+    .search-form__field::-moz-placeholder{
+        font-size: 16px;
+    }
+
+    .search-form__field:-ms-input-placeholder{
+        font-size: 16px;
+    }
+
+    .search-form__field::-ms-input-placeholder{
+        font-size: 16px;
+    }
+
     .search-form__field::placeholder{
         font-size: 16px;
     }
@@ -1192,6 +1327,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .benefits__card{
+        -ms-grid-column-span: 3;
         grid-column: span 3;
         margin-bottom: 40px;
     }
@@ -1233,6 +1369,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .tour__pic, .tour__info{
+        -ms-grid-column-span: 2;
         grid-column: span 2;
     }
 
@@ -1241,6 +1378,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .tour__pic_mob-first{
+        -ms-grid-row: -1;
         grid-row-start: -1; /*меняем местами картинку и заголовок*/
     }
 
@@ -1253,6 +1391,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .top__card{
+        -ms-grid-column-span: 6;
         grid-column: span 6;
     }
 
@@ -1265,7 +1404,7 @@ active отвечает за состояние ссылки, когда по н
     }
 
     .footer__logo{
-       width: 100%;
+        width: 100%;
         margin-bottom: 12px;
     }
 
